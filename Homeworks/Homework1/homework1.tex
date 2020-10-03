@@ -1,0 +1,77 @@
+\documentclass[a4paper]{article}
+\usepackage{ulem}
+\usepackage{graphicx}
+\usepackage[namelimits]{amsmath}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{mathrsfs}
+\usepackage{enumerate}
+\usepackage{indentfirst}
+\usepackage{multirow}
+\usepackage{latexsym}
+\usepackage{subfig}
+\usepackage{listings}
+\usepackage{xcolor}
+
+\lstset{numbers=left,
+	numberstyle=\tiny,
+	frame=shadowbox,
+	backgroundcolor=\color[RGB]{245,245,244},
+	keywordstyle=\color[RGB]{40,40,255},
+	numberstyle=\footnotesize\color{darkgray},
+	commentstyle=\color[RGB]{50,50,50},
+	breaklines=true}
+
+\title{UM-SJTU JOINT INSTITUTE\\VE482 Introduction to Operating Systems\\\vspace{0.5cm} Homework 1}
+\author{Li Yong 517370910222}
+\begin{document}
+\maketitle
+\newpage
+
+\section*{Ex.1 Revisions}
+	\textbf{\textit{stack}}: the space which is allocated automatically by the compiler. Hence it takes less time to allocate the space. It stores the parameters of functions, local variables and etc. The address is decreasing and \textit{stack} consists of contiguous memory space, i.e., the space of \textit{stack} is limited. If the space we need is more than the left space of \textit{stack}, then overflow occurs. The operations of \textit{stack} are similar to data structure stack.\par
+	\textbf{\textit{heap}}: the space which is allocated by programmers, generally. Programmer also need to declare the size of the space and free it after the usage. So that it takes more time to allocate the space. It stores the space allocated by programmers. The address is increasing and \textit{heap} consists of discontinuous space. The size of \textit{heap} is determined by the size of virtual memory. The operations of \textit{heap} are similar to linked list, because OS stores the addresses of spare space in linked list.
+
+\section*{Ex.2 Personal Research}
+	\begin{enumerate}[1.]
+		\item When a computer is powered on, a signal will be passed to south bridge to reset. Then north bridge and CPU will reset. Then POST, Power On Self Test, which intends to check the hardwares, was executed by BIOS. If there is no hardwares issues, BIOS will call \textit{boot loader} on boot disk. Boot loader's job is to start the real operating system by looking for a kernel. Once the kernel starts, the loading of operation system begins.
+		\item \textbf{Hybird kernels: }Hybrid kernel is a kernel architecture based on a combination of microkernel and monolithic kernel architecture used in computer operating systems.\\
+		\textbf{Exo kernels: }The exokernel architecture is designed to separate resource protection from management to facilitate application-specific customization.
+	\end{enumerate}
+
+\section*{Ex3. Course application}
+	\begin{enumerate}
+		\item a)c)d) In the user mode, it can only execute a subset of all instructions. These options are critical instructions, so that user mode does not have the authority.
+		\item Let's mark the CPUs as CPU1 and CPU2.
+		\begin{enumerate}
+			\item P0: CPU1 P1: CPU1 P2: CPU2\quad 20ms
+			\item P0: CPU1 P1: CPU2 P2: CPU1\quad 25ms
+			\item P0: CPU1 P1: CPU2 P2: CPU2\quad 30ms
+			\item P0: CPU1 P1: CPU1 P2: CPU1\quad 35ms
+		\end{enumerate}
+	\end{enumerate}
+
+\section*{Ex.4 Simple problem}
+	As for a character monochrome text screem, each pixel is 1 byte.
+	$$80\times 25 = 2000\ bytes = 2KB,$$
+	which costs \$10.\par
+	As for a 1024$\times$ 768 pixel 24-bit color bitmap,
+	$$1024\times768\times24=2359.296KB,$$
+	which costs \$11,796.48. Now it is about \$0.95/MB.
+
+\section*{Ex.5 Command lines on a Unix system}
+\begin{lstlisting}[language=bash]
+#!/bin/Ash
+#VE482 Homework1
+useradd -d /home/wenator04 wenator04 #Create a new user
+ps -ax #List all the currently running processes
+top #Display the characteristics of the CPU and the available memory
+head -200 /dev/urandom | cksum | cut -f 1 -d" " > random1
+head -200 /dev/urandom | cksum | cut -f 1 -d" " > random2 #Redirect some random output into two different files
+cat random1 random2>concatenate #Concatenate the two previous files
+hexdump concatenate #Read the content of the resulting file as hexdecimal values
+find /usr/src -type f -name "*semaphore*" | xargs grep -rl "ddekit_sem_down" #Use a single command to find all the files in /usr/src with the word semaphore in their name and containing the word ddekit_sem_down
+\end{lstlisting}
+.sh file is also attached.
+\end{document}
