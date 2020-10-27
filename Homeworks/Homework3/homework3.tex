@@ -1,0 +1,59 @@
+\documentclass[a4paper]{article}
+\usepackage{ulem}
+\usepackage{graphicx}
+\usepackage[namelimits]{amsmath}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{mathrsfs}
+\usepackage{enumerate}
+\usepackage{indentfirst}
+\usepackage{multirow}
+\usepackage{latexsym}
+\usepackage{subfig}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+
+\lstset{numbers=left,
+	numberstyle=\tiny,
+	frame=shadowbox,
+	backgroundcolor=\color[RGB]{245,245,244},
+	keywordstyle=\color[RGB]{40,40,255},
+	numberstyle=\footnotesize\color{darkgray},
+	commentstyle=\color[RGB]{50,50,50},
+	breaklines=true,
+	tabsize=4,
+	showspaces=false}
+
+\title{UM-SJTU JOINT INSTITUTE\\VE482 Introduction to Operating Systems\\\vspace{0.5cm} Homework 3}
+\author{Li Yong 517370910222}
+\begin{document}
+\maketitle
+\newpage
+
+\section*{Ex.1 General questions}
+\begin{enumerate}
+	\item Actually, so-called ``voluntarily'' is controlled by the programmers. Programmers make a thread release the CPU when it is unnecessary.
+	\item
+	\begin{itemize}
+		\item Advantage: Efficiency
+		\item Disadvantage: The block of one thread will cause all threads blocking.
+	\end{itemize}
+	\item No.
+	\item These system calls will be rewritten to Win32 API or other codes implementing same functions.
+\end{enumerate}
+
+\section*{Ex.2 C programming}
+
+\section*{Ex.3 Research on POSIX}
+POSIX stands for ``Portable Operating System Interface'' and defines a set of standards to provide compatibility between different computing platforms. The current version of the standard is IEEE 1003.1 2016 and can be accessed from the OpenGroup POSIX specification. POSIX defines various tools interfaces, commands and APIs for UNIX-like operating systems and others.\par
+The need for standardization arose because enterprises using computers wanted to be able to develop programs that could be moved among different manufacturer's computer systems without having to be recoded.\par
+The following are considered to be within the scope of POSIX standardization:
+\begin{itemize}
+	\item System interface (functions, macros and external variables)
+	\item Command interpreter, or Shell (the {\tt sh} utility)
+	\item Utilities (such as {\tt more}, {\tt cat}, {\tt ls})
+\end{itemize}
+\end{document}
